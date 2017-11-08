@@ -1,0 +1,12 @@
+
+
+<div *ngIf="checked; else noCourses">
+  <div *ngFor="let course of courses">
+    {{course}}
+  </div>
+</div>
+
+
+<ng-template #noCoursesng >
+   NO COURSES!!!!!!!!!!!!
+</ng-template>

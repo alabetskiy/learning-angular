@@ -1,0 +1,28 @@
+<form #f="ngForm">
+  <div class="container">
+    <div class="form-group">
+      <label for="">Course Name</label>
+      <input required minlength="3" maxlength="10" ngModel name="courseName" #courseName="ngModel" type="text" class="form-control">
+      <div class="alert alert-danger" *ngIf="courseName.touched && !courseName.valid">
+
+        <div *ngIf="!courseName.minlength"> Min length has to be 3 </div>
+        <div *ngIf="!courseName.maxlength"> Max length has to be 10 </div>
+      </div>
+ 
+    </div>
+
+    <div class="form-group">
+      <label for="ddlCategory">Category</label>
+      <select ngModel name="ddlCategory" #ddlCategory="ngModel"id="ddlCategory" class="form-control" (change)="ddlLook(ddlCategory)">
+        <option value=""></option>
+        <option *ngFor="let category of categories" [selected]="ca"[ngValue]="category">{{category.name}}</option>
+      </select>
+
+      <div class="alert alert-danger" *ngIf="ddlCategory.touched && ddlCategory.value ==''">Please select Category</div>
+      
+    </div>
+
+    <button class="btn btn-primary" (click)="SubData(f)">Submit</button>
+  </div>
+  {{f.value | json}}
+</form>

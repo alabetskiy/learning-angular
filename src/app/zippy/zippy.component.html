@@ -1,0 +1,22 @@
+<div class="container">
+  <table class="table table-bordered">
+    <thead>
+      <tr  [style.backgroundColor]="viewModel ? 'gray': 'white'">
+        <th>{{title}}
+          <div class="arrow-right">
+          <span style='text-align:center' class="glyphicon" [class.glyphicon-menu-down]="viewModel" [class.glyphicon-menu-up]="!viewModel"></span>
+         </div>
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td *ngIf='viewModel'>
+          <ng-content></ng-content>
+        </td>
+
+      </tr>
+    </tbody>
+
+  </table>
+</div>
