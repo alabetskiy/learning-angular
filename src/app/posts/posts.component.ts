@@ -1,3 +1,4 @@
+import { BadInput } from './../common/bad-input';
 import { NotFoundError } from './../common/not-found-error';
 import { AppError } from './../common/app-error';
 import { PostService } from './../services/post.service';
@@ -39,14 +40,14 @@ export class PostsComponent implements OnInit {
     this.service.createPost(JSON.stringify(post))
       .subscribe(
         response => {
-        post['id'] = response.json().id; //Because we don;y jvaeh['id'] 
+        post['id'] = response.json().id; //Because we don't have ['id'] 
          // this.posts.splice(0,0,post);
         this.posts.push(post);
 
       },
-      (error:Response) => {
-        if (error.status === 400){
-          //this.form.setErrors(error.json());          
+      (error:AppError) => {
+        if (error instanceof BadInput){
+          // this.form.setErrors(error.originalError);          
         } else{
           alert('An unexpected error occurred.');
           console.log(error);
@@ -79,12 +80,13 @@ export class PostsComponent implements OnInit {
       
     }, 
     (error:AppError) => {
-      console.log(error);
+      debugger;
       if (error instanceof NotFoundError) {
-        alert('This post has already been deleted');
+        
+        alert('This post has already been deleted!!!!!!!!!!!!!');
       } else{
         alert('An unexpected error occurred.');
-        console.log(error);
+        
       }
 
     })
