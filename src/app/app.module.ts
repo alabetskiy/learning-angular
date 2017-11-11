@@ -1,3 +1,5 @@
+import { AppErrorHandler } from './common/app-error-handler';
+import { ErrorHandler } from '@angular/core/';
 import { MyFilterPipe } from './myFiler.pipe';
 import { SummaryPipe } from './summary.pipe';
 import { AuthrosService } from './authros.service';
@@ -60,7 +62,8 @@ import { PostService } from './services/post.service';
   providers: [
     PostService,
     CoursesService,
-    AuthrosService
+    AuthrosService,
+    {provide: ErrorHandler, useClass: AppErrorHandler}  //meaning where we use ErrorHandler class use AppErrorHander class instead
   ],
   bootstrap: [AppComponent]
 })
