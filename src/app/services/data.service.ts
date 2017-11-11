@@ -18,7 +18,7 @@ export class DataService {
   }
 
   create(resource) {
-    return this.http.post(this.url, resource)
+ return this.http.post(this.url, resource)
       .catch(this.handleError);
   }
 

@@ -33,14 +33,13 @@ export class PostsComponent implements OnInit {
   createPost(input: HTMLInputElement) {
     let post = { title: input.value };
     input.value = '';
+    this.posts.splice(0,0,post);
 
     this.service.create(JSON.stringify(post))
       .subscribe(
       response => {
         post['id'] = response.json().id; //Because we don't have ['id'] 
-        // this.posts.splice(0,0,post);
-        this.posts.push(post);
-
+        // this.posts.push(post);
       },
       (error: AppError) => {
         if (error instanceof BadInput) {

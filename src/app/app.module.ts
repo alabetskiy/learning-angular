@@ -1,3 +1,4 @@
+import { GitHubService } from './services/github.service';
 import { AppErrorHandler } from './common/app-error-handler';
 import { ErrorHandler } from '@angular/core/';
 import { MyFilterPipe } from './myFiler.pipe';
@@ -27,6 +28,7 @@ import { NewCourseFormComponent } from './new-course-form/new-course-form.compon
 import { ChangePasswordComponent } from './change-password/change-password.component';
 import { PostsComponent } from './posts/posts.component';
 import { PostService } from './services/post.service';
+import { MyGithubFollowersComponent } from './my-github-followers/my-github-followers.component';
 
 
 
@@ -49,7 +51,8 @@ import { PostService } from './services/post.service';
     SignupFormComponent,
     NewCourseFormComponent,
     ChangePasswordComponent,
-    PostsComponent
+    PostsComponent,
+    MyGithubFollowersComponent
 
     
   ],
@@ -63,7 +66,8 @@ import { PostService } from './services/post.service';
     PostService,
     CoursesService,
     AuthrosService,
-    {provide: ErrorHandler, useClass: AppErrorHandler}  //meaning where we use ErrorHandler class use AppErrorHander class instead
+    {provide: ErrorHandler, useClass: AppErrorHandler},
+    GitHubService  //meaning where we use ErrorHandler class use AppErrorHander class instead
   ],
   bootstrap: [AppComponent]
 })
