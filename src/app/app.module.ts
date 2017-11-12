@@ -10,6 +10,7 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { NgModule } from '@angular/core';
 import {HttpModule} from '@angular/http';
 
+
 import { AppComponent } from './app.component';
 import { CoursesComponent } from './courses.component';
 import { CourseComponent } from './course/course.component';
@@ -29,6 +30,12 @@ import { ChangePasswordComponent } from './change-password/change-password.compo
 import { PostsComponent } from './posts/posts.component';
 import { PostService } from './services/post.service';
 import { MyGithubFollowersComponent } from './my-github-followers/my-github-followers.component';
+import { NavbarComponent } from './navbar/navbar.component';
+import { HomeComponent } from './home/home.component';
+import { GithubProfileComponent } from './github-profile/github-profile.component';
+import { NotFoundComponent } from './not-found/not-found.component';
+import {RouterModule} from '@angular/router';
+
 
 
 
@@ -52,7 +59,11 @@ import { MyGithubFollowersComponent } from './my-github-followers/my-github-foll
     NewCourseFormComponent,
     ChangePasswordComponent,
     PostsComponent,
-    MyGithubFollowersComponent
+    MyGithubFollowersComponent,
+    NavbarComponent,
+    HomeComponent,
+    GithubProfileComponent,
+    NotFoundComponent
 
     
   ],
@@ -60,7 +71,15 @@ import { MyGithubFollowersComponent } from './my-github-followers/my-github-foll
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpModule
+    HttpModule,
+    RouterModule.forRoot([
+      {path: '', component: HomeComponent},
+      {path: 'followers/:username', component: MyGithubFollowersComponent },
+      {path: 'followers', component: MyGithubFollowersComponent},
+      {path: 'posts', component: PostsComponent},
+      {path: '**', component: NotFoundComponent},
+    ])
+    
   ],
   providers: [
     PostService,

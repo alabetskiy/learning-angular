@@ -20,12 +20,6 @@ export class MyGithubFollowersComponent implements OnInit  {
     })
   }
 
-  
-
-public GetAllFollowers(){
- 
-}
-
 }
 
 
