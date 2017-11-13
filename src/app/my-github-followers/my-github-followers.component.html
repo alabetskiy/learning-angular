@@ -6,7 +6,10 @@
     </div>
     <div class="col-md-2">
     <br>
-      <div class="row">{{follower.login}}</div>
+      <div class="row">
+        <a [routerLink]="['/followers', follower.id]">{{follower.login}} </a> 
+        <!-- We can bind rounterLink to array. First param is path (see app.modules), second is dynamic object(see ts file)  -->
+      </div>
       <div class="row">{{follower.html_url}}</div>
      
     </div>
