@@ -74,7 +74,7 @@ import {RouterModule} from '@angular/router';
     HttpModule,
     RouterModule.forRoot([
       {path: '', component: HomeComponent},
-      {path: 'followers/:id', component: GithubProfileComponent },
+      {path: 'followers/:id/:username', component: GithubProfileComponent },
       {path: 'followers', component: MyGithubFollowersComponent},
       {path: 'posts', component: PostsComponent},
       {path: '**', component: NotFoundComponent},
