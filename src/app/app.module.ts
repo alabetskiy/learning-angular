@@ -1,7 +1,7 @@
 import { AuthService } from './services/auth.service';
 
 import { OrderService } from './services/order.service';
-import { fakeBackendProvider } from './helpers/fake-backend';
+// import { fakeBackendProvider } from './helpers/fake-backend';
 import { GitHubService } from './services/github.service';
 import { AppErrorHandler } from './common/app-error-handler';
 import { ErrorHandler } from '@angular/core/';
@@ -40,7 +40,7 @@ import { GithubProfileComponent } from './github-profile/github-profile.componen
 import { NotFoundComponent } from './not-found/not-found.component';
 import {RouterModule} from '@angular/router';
 import { MockBackend } from '@angular/http/testing';
-import { BaseRequestOptions } from '@angular/http/src/base_request_options';
+// import { BaseRequestOptions } from '@angular/http/src/base_request_options';
 import { AdminComponent } from './admin/admin.component';
 
 
@@ -99,9 +99,9 @@ import { AdminComponent } from './admin/admin.component';
     GitHubService,  //meaning where we use ErrorHandler class use AppErrorHander class instead
     
     //For creating a mock back-end.
-    fakeBackendProvider,
-    MockBackend,
-    BaseRequestOptions
+    // fakeBackendProvider,
+    MockBackend
+   
   ],
   bootstrap: [AppComponent]
 })
